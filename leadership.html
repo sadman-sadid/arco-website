@@ -11,7 +11,7 @@
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700&family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
 
         <!-- Icon Font Stylesheet -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
@@ -21,52 +21,324 @@
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+
+        <style>
+            /* ── Anchor offset for fixed navbar ── */
+            .section-anchor {
+                scroll-margin-top: 90px;
+            }
+
+            /* ── Sidebar ── */
+            .about-sidebar {
+                position: sticky;
+                top: 100px;
+                background: #870607;
+                border-radius: 16px;
+                padding: 12px 10px;
+                box-shadow: 0 8px 32px rgba(135,6,7,0.18);
+            }
+
+            .about-sidebar .sidebar-title {
+                font-family: 'Playfair Display', serif;
+                font-size: 1rem;
+                font-weight: 700;
+                color: rgba(255,255,255,0.6);
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                padding: 8px 14px 14px;
+                border-bottom: 1px solid rgba(255,255,255,0.15);
+                margin-bottom: 8px;
+            }
+
+            .sidebar-nav-link {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 12px 16px;
+                color: rgba(255,255,255,0.82);
+                font-family: 'Lato', sans-serif;
+                font-size: 0.95rem;
+                font-weight: 400;
+                border-radius: 10px;
+                text-decoration: none;
+                transition: background 0.2s, color 0.2s, padding-left 0.2s;
+                margin-bottom: 2px;
+            }
+
+            .sidebar-nav-link i {
+                font-size: 0.85rem;
+                opacity: 0.7;
+                transition: opacity 0.2s;
+            }
+
+            .sidebar-nav-link:hover,
+            .sidebar-nav-link.active {
+                background: rgba(255,255,255,0.18);
+                color: #fff;
+                padding-left: 22px;
+                text-decoration: none;
+            }
+
+            .sidebar-nav-link.active {
+                background: rgba(255,255,255,0.25);
+                font-weight: 700;
+            }
+
+            .sidebar-nav-link.active i,
+            .sidebar-nav-link:hover i {
+                opacity: 1;
+            }
+
+            /* ── Section headings ── */
+            .about-section-heading {
+                font-family: 'Playfair Display', serif;
+                color: #870607;
+                font-size: 1.55rem;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                margin-bottom: 6px;
+                padding-bottom: 10px;
+                border-bottom: 2px solid #870607;
+                display: inline-block;
+            }
+
+            /* ── Body text ── */
+            .about-body-text {
+                font-family: 'Lato', sans-serif;
+                font-size: 1.05rem;
+                font-weight: 400;
+                line-height: 1.9;
+                color: #333;
+            }
+
+            /* ── Info card ── */
+            .about-info-card {
+                background: #fdf5f5;
+                border-left: 4px solid #870607;
+                border-radius: 0 10px 10px 0;
+                padding: 18px 22px;
+                margin-bottom: 8px;
+            }
+
+            /* ── Tables ── */
+            .reg-table {
+                border-collapse: collapse;
+                width: 100%;
+                font-family: 'Lato', sans-serif;
+                font-size: 0.95rem;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px rgba(135,6,7,0.08);
+            }
+
+            .reg-table thead th {
+                background: #870607;
+                color: #fff;
+                padding: 12px 16px;
+                text-align: center;
+                border: none;
+                font-weight: 700;
+                letter-spacing: 0.4px;
+            }
+
+            .reg-table tbody td {
+                padding: 11px 16px;
+                border-bottom: 1px solid #f0d8d8;
+                text-align: center;
+                vertical-align: middle;
+                color: #333;
+            }
+
+            .reg-table tbody td:nth-child(2) { text-align: left; }
+            .reg-table tbody tr:last-child td { border-bottom: none; }
+            .reg-table tbody tr:hover td { background: #fff5f5; }
+
+            /* Human resources merged-header table */
+            .hr-table {
+                border-collapse: collapse;
+                width: 100%;
+                font-family: 'Lato', sans-serif;
+                font-size: 0.95rem;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 2px 12px rgba(135,6,7,0.08);
+            }
+
+            .hr-table th, .hr-table td {
+                border: 1px solid #f0d8d8;
+                padding: 11px 24px;
+                text-align: center;
+                vertical-align: middle;
+            }
+
+            .hr-table thead tr:first-child th {
+                background: #870607;
+                color: #fff;
+                font-weight: 700;
+                border-color: #870607;
+            }
+
+            .hr-table thead tr:nth-child(2) th {
+                background: #fdf5f5;
+                color: #870607;
+                font-weight: 700;
+            }
+
+            .hr-table tbody td { color: #333; }
+            .hr-table tbody tr:hover td { background: #fff5f5; }
+
+            /* ── Policy list ── */
+            .policy-list {
+                font-family: 'Lato', sans-serif;
+                font-size: 1.02rem;
+                line-height: 2;
+                color: #333;
+                padding-left: 0;
+                list-style: none;
+            }
+
+            .policy-list li {
+                display: flex;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 6px 0;
+                border-bottom: 1px solid #f5e5e5;
+            }
+
+            .policy-list li:last-child { border-bottom: none; }
+
+            .policy-list li::before {
+                content: "\f058";
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                color: #870607;
+                margin-top: 4px;
+                flex-shrink: 0;
+            }
+
+            /* ── Organogram image ── */
+            .organogram-wrap {
+                background: #fdf5f5;
+                border-radius: 12px;
+                padding: 20px;
+                text-align: center;
+                border: 1px solid #f0d8d8;
+            }
+
+            .organogram-wrap img {
+                max-width: 100%;
+                border-radius: 8px;
+            }
+
+            /* ── Section divider ── */
+            .section-divider {
+                border: none;
+                border-top: 1px solid #f0d8d8;
+                margin: 40px 0;
+            }
+
+            /* ── Mobile dropdown ── */
+            .dropdown-quicknav { display: none; }
+
+            .dropdown-quicknav select {
+                width: 100%;
+                padding: 12px 16px;
+                border: 2px solid #870607;
+                border-radius: 10px;
+                color: #870607;
+                font-family: 'Lato', sans-serif;
+                font-size: 1rem;
+                font-weight: 700;
+                background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23870607' d='M6 8L1 3h10z'/%3E%3C/svg%3E") no-repeat right 14px center;
+                appearance: none;
+                cursor: pointer;
+                outline: none;
+            }
+
+            @media (max-width: 991px) {
+                .about-sidebar { display: none; }
+                .dropdown-quicknav { display: block; margin-bottom: 32px; }
+            }
+            /* ── New Core Staff Card Styles ── */
+.staff-card {
+    background-color: #870607; /* Teal background from image */
+    color: #fff;
+    padding: 20px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.staff-info {
+    margin-bottom: 20px;
+}
+
+.staff-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 2px;
+}
+
+.staff-designation {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.staff-photo-wrap {
+    background-color: #fff;
+    padding: 10px 0 0 10px; /* Creates the white "L" frame effect */
+    margin-top: 10px;
+}
+
+.staff-photo-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+        </style>
     </head>
 
     <body>
 
         <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-grow text-primary" role="status"></div>
         </div>
         <!-- Spinner End -->
 
-
-         <!-- Navbar start -->
+        <!-- Navbar Start -->
         <div class="container-fluid fixed-top px-0">
-                <nav class="navbar navbar-light bg-light navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand ms-3">
-                        <h1 class="text-primary display-5"><img src="Picture1.jpeg"></h1>
-                    </a>
-                    <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
-                        <div class="navbar-nav ms-auto">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About Us</a>
-                            <a href="leadership.html" class="nav-item nav-link">Leadership & Governance</a>
-                            <a href="programs.html" class="nav-item nav-link">Programs & Projects</a>
-                            <a href="resources.html" class="nav-item nav-link">Resources</a>
-                            <a href="gallery.html" class="nav-item nav-link">Gallery</a>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        </div>
+            <nav class="navbar navbar-light bg-light navbar-expand-xl">
+                <a href="index.html" class="navbar-brand ms-3">
+                    <h1 class="text-primary display-5"><img src="Picture1.jpeg"></h1>
+                </a>
+                <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About Us</a>
+                        <a href="leadership.html" class="nav-item nav-link active">Leadership & Governance</a>
+                        <a href="programs.html" class="nav-item nav-link">Programs & Projects</a>
+                        <a href="resources.html" class="nav-item nav-link">Resources</a>
+                        <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </div>
         <!-- Navbar End -->
 
         <!-- Header Start -->
         <div class="container-fluid bg-breadcrumb">
             <div class="container text-center py-5" style="max-width: 900px;">
-                <h3 class="text-white display-3 mb-4">Leadership & Governance</h1>
+                <h3 class="text-white display-3 mb-4">Leadership & Governance</h3>
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item active text-white">Leadership & Governance</li>
@@ -75,283 +347,315 @@
         </div>
         <!-- Header End -->
 
-        <!-- About Start -->
-        <div class="container-fluid about  py-5">
+        <!-- Leadership Section Start -->
+        <div class="container-fluid about py-5">
             <div class="container py-5">
                 <div class="row g-5">
-                    <div class="col-xl-7">
-                        <h5  style="color: #870607;" >General Committee:</h5>
-                        <p class="fs-5 mb-4">ARCO has a general committee consisted of 27 members; of which six (6) are female and twenty-one (21) are male from different backgrounds.</p>
-                        <h5 style="color: #870607;">Executive Committee:</h5>
-                        <!DOCTYPE html>
-                            <html>
-                            <head>
-                            <style>
-                            table {
-                                border-collapse: collapse;
-                                width: 100%;
-                                font-family: Arial, sans-serif;
-                            }
 
-                            thead th {
-                                background: #870607;
-                                color: #fff;
-                                padding: 10px 16px;
-                                text-align: center;
-                                border: 1px solid #999;
-                                font-weight: bold;
-                            }
-
-                            tbody td {
-                                padding: 10px 16px;
-                                border: 1px solid #999;
-                                text-align: center;
-                                vertical-align: middle;
-                            }
-
-                            tbody td:nth-child(2) {
-                                text-align: left;
-                            }
-                            </style>
-                            </head>
-                            <body>
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Sl. No.</th>
-                                    <th>Name</th>
-                                    <th>Father’s/husband’s name</th>
-                                    <th>Designation</th>
-                                    <th>Address</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1.</td>
-                                    <td>Shahin Monowara Haque</td>
-                                    <td>Late Shamsul Haque</td>
-                                    <td>President</td>
-                                    <td>Par-Naogaon, Naogaon Sadar,Naogaon-6500</td>
-                                </tr>
-                                <tr>
-                                    <td>2.</td>
-                                    <td>Md. Sajjad Hossain</td>
-                                    <td>Md. Abul Kalam</td>
-                                    <td>Vice-President</td>
-                                    <td>Chuhar, Mithapukur, Rangpur 5460</td>
-                                </tr>
-                                <tr>
-                                    <td>3.</td>
-                                    <td>Ahmed Toufiqur Rahman</td>
-                                    <td>Mohammad Abdur Rahman</td>
-                                    <td>General Secretary</td>
-                                    <td>House 104, Road, 17, Sector 14, Uttara, Dhaka</td>
-                                </tr>
-                                <tr>
-                                    <td>4.</td>
-                                    <td>Md. Mohibur Rahman</td>
-                                    <td>Late. Md. Mojibur Rahman </td>
-                                    <td>Assistant General Secretary</td>
-                                    <td>Boalia, Naogaon Sadar,Naogaon 5891</td>
-                                </tr>
-                                <tr>
-                                    <td>5.</td>
-                                    <td>Md. Mamunur Rashid</td>
-                                    <td>Late Yadul Hossain</td>
-                                    <td>Treasurer</td>
-                                    <td>Boalia, Naogaon Sadar, Naogaon 5891</td>
-                                </tr>
-                                <tr>
-                                    <td>6.</td>
-                                    <td>Md.Abu Shahamid Khan</td>
-                                    <td>Amir Hossain Khan</td>
-                                    <td>Member</td>
-                                    <td>Durgapur, Kashimpur, Raninagar, Naogaon 6591</td>
-                                </tr>
-                                <tr>
-                                    <td>7.</td>
-                                    <td>D M Shahid Ashraful</td>
-                                    <td>Late. Abed Ali Dewan</td>
-                                    <td>Member</td>
-                                    <td>Vatara, Gulshan, Dhaka 1212</td>
-                                </tr>
-                                <tr>
-                                    <td>8.</td>
-                                    <td>Md. Zahidul Islam</td>
-                                    <td>Late Taser Uddin</td>
-                                    <td>Member</td>
-                                    <td>Stadiumpara, Par Naogaon, Naogaon 6500</td>
-                                </tr>
-                                <tr>
-                                    <td>9.</td>
-                                    <td>Rebeka Sultana</td>
-                                    <td>Late Hossain Ali</td>
-                                    <td>Member</td>
-                                    <td>Boalia, Naogaon Sadar, Naogaon 5891</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            </body>
-                            </html>
-                            <br>
-                        <h5 style="color: #870607;">Organogram:</h5>
-                        <img src="organogram.png">
-                        <br>
-                        <h5 style="color: #870607;">Human Resources:</h5>
-<!DOCTYPE html>
-<html>
-<head>
-<style>
-  table {
-    border-collapse: collapse;
-    font-family: Arial, sans-serif;
-  }
-
-  th, td {
-    border: 1px solid #999;
-    padding: 10px 24px;
-    text-align: center;
-  }
-
-  thead tr:first-child th {
-    background-color: #870607;
-    font-weight: bold;
-  }
-
-  thead tr:nth-child(2) th {
-    background-color: #ffff;
-    color: #000;
-    font-weight: bold;
-  }
-</style>
-</head>
-<body>
-  <table>
-    <thead>
-      <tr>
-        <th colspan="3">Permanent staff</th>
-        <th colspan="3">Volunteer</th>
-      </tr>
-      <tr>
-        <th>Total</th>
-        <th>Female</th>
-        <th>Male</th>
-        <th>Total</th>
-        <th>Female</th>
-        <th>Male</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>10</td>
-        <td>02</td>
-        <td>08</td>
-        <td>40</td>
-        <td>25</td>
-        <td>15</td>
-      </tr>
-    </tbody>
-  </table>
-</body>
-</html>
-
-<!DOCTYPE html>
-<br>
-                            <h5 style="color: #870607;">Core Staff:</h5>
-                            <html>
-                            <head>
-                            <style>
-                            table {
-                                border-collapse: collapse;
-                                width: 100%;
-                                font-family: Arial, sans-serif;
-                            }
-
-                            thead th {
-                                background: #870607;
-                                color: #fff;
-                                padding: 10px 16px;
-                                text-align: center;
-                                border: 1px solid #999;
-                                font-weight: bold;
-                            }
-
-                            tbody td {
-                                padding: 10px 16px;
-                                border: 1px solid #999;
-                                text-align: center;
-                                vertical-align: middle;
-                            }
-
-                            tbody td:nth-child(2) {
-                                text-align: left;
-                            }
-                            </style>
-                            </head>
-                            <body>
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th>Sl. No.</th>
-                                    <th>Name</th>
-                                    <th>Designation</th>
-                                    <th>Photo</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1.</td>
-                                    <td>Ahmed Toufiqur Rahman</td>
-                                    <td>Executive Director</td>
-                                    <td><img src="CS-1.jpeg" height="100"width="100"></td>
-                                </tr>
-                                <tr>
-                                    <td>2.</td>
-                                    <td>Syed Taposh</td>
-                                    <td>Program Director</td>
-                                    <td><img src="CS-2.jpeg" height="100"width="100"></td>
-                                </tr>
-                                <tr>
-                                    <td>3.</td>
-                                    <td>Mahfuzur Rahman</td>
-                                    <td>Finance and Admin Director</td>
-                                    <td><img src="CS-3.jpeg" height="100"width="100"></td>
-                                </tr>
-                                <tr>
-                                    <td>4.</td>
-                                    <td>A.K.M Mahmudur Rahman</td>
-                                    <td>Coordinator</td>
-                                    <td><img src="CS-4.jpeg" height="100"width="100"></td>
-                                </tr>
-                                <tr>
-                                    <td>5.</td>
-                                    <td>D.M. Shafiul Alam (Monjur)</td>
-                                    <td>Coordinator</td>
-                                    <td><img src="CS-5.jpeg" height="100"width="100"></td>
-                                </tr>
-                                <tr>
-                                    <td>6.</td>
-                                    <td>Sheikh Farid</td>
-                                    <td>Field Organizer</td>
-                                    <td><img src="CS-6.jpeg" height="100"width="100"></td>
-                                </tr>
-                                <tr>
-                                    <td>7.</td>
-                                    <td>Pronoy Saha</td>
-                                    <td>Field Organizer</td>
-                                    <td><img src="CS-7.jpeg" height="100"width="100"></td>
-                                </tr>
-                                </tbody>
-                            </table>
-                            </body>
-                            </html>
+                    <!-- ── Sidebar (desktop) ── -->
+                    <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                        <div class="about-sidebar">
+                            <div class="sidebar-title">On This Page</div>
+                            <a href="#general-committee" class="sidebar-nav-link active">
+                                <i class="fas fa-users"></i> General Committee
+                            </a>
+                            <a href="#executive-committee" class="sidebar-nav-link">
+                                <i class="fas fa-user-tie"></i> Executive Committee
+                            </a>
+                            <a href="#organogram" class="sidebar-nav-link">
+                                <i class="fas fa-sitemap"></i> Organogram
+                            </a>
+                            <a href="#human-resources" class="sidebar-nav-link">
+                                <i class="fas fa-id-badge"></i> Human Resources
+                            </a>
+                            <a href="#core-staff" class="sidebar-nav-link">
+                                <i class="fas fa-user-circle"></i> Core Staff
+                            </a>
+                            <a href="#org-standards" class="sidebar-nav-link">
+                                <i class="fas fa-clipboard-list"></i> Standards & Procedures
+                            </a>
+                        </div>
                     </div>
+
+                    <!-- ── Main content ── -->
+                    <div class="col-xl-9 col-lg-9 col-12">
+
+                        <!-- Mobile dropdown -->
+                        <div class="dropdown-quicknav">
+                            <select onchange="document.getElementById(this.value).scrollIntoView({behavior:'smooth', block:'start'})">
+                                <option value="" disabled selected>— Jump to section —</option>
+                                <option value="general-committee">General Committee</option>
+                                <option value="executive-committee">Executive Committee</option>
+                                <option value="organogram">Organogram</option>
+                                <option value="human-resources">Human Resources</option>
+                                <option value="core-staff">Core Staff</option>
+                                <option value="org-standards">Standards & Procedures</option>
+                            </select>
+                        </div>
+
+                        <!-- General Committee -->
+                        <section id="general-committee" class="section-anchor mb-5">
+                            <h5 class="about-section-heading">General Committee</h5>
+                            <div class="about-info-card mt-3">
+                                <p class="about-body-text mb-0">
+                                    ARCO has a general committee consisting of <strong style="color:#870607;">27 members</strong> — of which <strong>6 are female</strong> and <strong>21 are male</strong> from different professional and community backgrounds.
+                                </p>
+                            </div>
+                        </section>
+
+                        <hr class="section-divider">
+
+                        <!-- Executive Committee -->
+                        <section id="executive-committee" class="section-anchor mb-5">
+                            <h5 class="about-section-heading">Executive Committee</h5>
+                            <div style="overflow-x:auto; border-radius:10px; margin-top: 20px;">
+                                <table class="reg-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Sl. No.</th>
+                                            <th>Name</th>
+                                            <th>Father's / Husband's Name</th>
+                                            <th>Designation</th>
+                                            <th>Address</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1.</td>
+                                            <td>Shahin Monowara Haque</td>
+                                            <td>Late Shamsul Haque</td>
+                                            <td>President</td>
+                                            <td>Par-Naogaon, Naogaon Sadar, Naogaon-6500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>2.</td>
+                                            <td>Md. Sajjad Hossain</td>
+                                            <td>Md. Abul Kalam</td>
+                                            <td>Vice-President</td>
+                                            <td>Chuhar, Mithapukur, Rangpur 5460</td>
+                                        </tr>
+                                        <tr>
+                                            <td>3.</td>
+                                            <td>Ahmed Toufiqur Rahman</td>
+                                            <td>Mohammad Abdur Rahman</td>
+                                            <td>General Secretary</td>
+                                            <td>House 104, Road 17, Sector 14, Uttara, Dhaka</td>
+                                        </tr>
+                                        <tr>
+                                            <td>4.</td>
+                                            <td>Md. Mohibur Rahman</td>
+                                            <td>Late. Md. Mojibur Rahman</td>
+                                            <td>Assistant General Secretary</td>
+                                            <td>Boalia, Naogaon Sadar, Naogaon 5891</td>
+                                        </tr>
+                                        <tr>
+                                            <td>5.</td>
+                                            <td>Md. Mamunur Rashid</td>
+                                            <td>Late Yadul Hossain</td>
+                                            <td>Treasurer</td>
+                                            <td>Boalia, Naogaon Sadar, Naogaon 5891</td>
+                                        </tr>
+                                        <tr>
+                                            <td>6.</td>
+                                            <td>Md. Abu Shahamid Khan</td>
+                                            <td>Amir Hossain Khan</td>
+                                            <td>Member</td>
+                                            <td>Durgapur, Kashimpur, Raninagar, Naogaon 6591</td>
+                                        </tr>
+                                        <tr>
+                                            <td>7.</td>
+                                            <td>D M Shahid Ashraful</td>
+                                            <td>Late. Abed Ali Dewan</td>
+                                            <td>Member</td>
+                                            <td>Vatara, Gulshan, Dhaka 1212</td>
+                                        </tr>
+                                        <tr>
+                                            <td>8.</td>
+                                            <td>Md. Zahidul Islam</td>
+                                            <td>Late Taser Uddin</td>
+                                            <td>Member</td>
+                                            <td>Stadiumpara, Par Naogaon, Naogaon 6500</td>
+                                        </tr>
+                                        <tr>
+                                            <td>9.</td>
+                                            <td>Rebeka Sultana</td>
+                                            <td>Late Hossain Ali</td>
+                                            <td>Member</td>
+                                            <td>Boalia, Naogaon Sadar, Naogaon 5891</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <hr class="section-divider">
+
+                        <!-- Organogram -->
+                        <section id="organogram" class="section-anchor mb-5">
+                            <h5 class="about-section-heading">Organogram</h5>
+                            <div class="organogram-wrap mt-3">
+                                <img src="organogram.png" alt="ARCO Organogram">
+                            </div>
+                        </section>
+
+                        <hr class="section-divider">
+
+                        <!-- Human Resources -->
+                        <section id="human-resources" class="section-anchor mb-5">
+                            <h5 class="about-section-heading">Human Resources</h5>
+                            <div style="overflow-x:auto; border-radius:10px; margin-top: 20px;">
+                                <table class="hr-table">
+                                    <thead>
+                                        <tr>
+                                            <th colspan="3">Permanent Staff</th>
+                                            <th colspan="3">Volunteer</th>
+                                        </tr>
+                                        <tr>
+                                            <th>Total</th>
+                                            <th>Female</th>
+                                            <th>Male</th>
+                                            <th>Total</th>
+                                            <th>Female</th>
+                                            <th>Male</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>02</td>
+                                            <td>08</td>
+                                            <td>40</td>
+                                            <td>25</td>
+                                            <td>15</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+
+                        <hr class="section-divider">
+
+                        <!-- Core Staff -->
+                    <section id="core-staff" class="section-anchor mb-5">
+                    <h5 class="about-section-heading">Core Staff</h5>
+                    
+                    <div class="row g-4 mt-3">
+                        <div class="col-md-6 col-lg-4">
+                            <div class="staff-card">
+                                <div class="staff-info">
+                                    <div class="staff-name">Ahmed Toufiqur Rahman</div>
+                                    <div class="staff-designation">Executive Director</div>
+                                </div>
+                                <div class="staff-photo-wrap">
+                                    <img src="CS-1.jpeg" alt="Ahmed Toufiqur Rahman">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="staff-card">
+                                <div class="staff-info">
+                                    <div class="staff-name">Syed Taposh</div>
+                                    <div class="staff-designation">Program Director</div>
+                                </div>
+                                <div class="staff-photo-wrap">
+                                    <img src="CS-2.jpeg" alt="Syed Taposh">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="staff-card">
+                                <div class="staff-info">
+                                    <div class="staff-name">Mahfuzur Rahman</div>
+                                    <div class="staff-designation">Finance and Admin Director</div>
+                                </div>
+                                <div class="staff-photo-wrap">
+                                    <img src="CS-3.jpeg" alt="Mahfuzur Rahman">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="staff-card">
+                                <div class="staff-info">
+                                    <div class="staff-name">A.K.M Mahmudur Rahman</div>
+                                    <div class="staff-designation">Coordinator</div>
+                                </div>
+                                <div class="staff-photo-wrap">
+                                    <img src="CS-4.jpeg" alt="A.K.M Mahmudur Rahman">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="staff-card">
+                                <div class="staff-info">
+                                    <div class="staff-name">D.M. Shafiul Alam (Monjur)</div>
+                                    <div class="staff-designation">Coordinator</div>
+                                </div>
+                                <div class="staff-photo-wrap">
+                                    <img src="CS-5.jpeg" alt="D.M. Shafiul Alam (Monjur)">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="staff-card">
+                                <div class="staff-info">
+                                    <div class="staff-name">Sheikh Farid</div>
+                                    <div class="staff-designation">Field Organizer</div>
+                                </div>
+                                <div class="staff-photo-wrap">
+                                    <img src="CS-6.jpeg" alt="Sheikh Farid">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 col-lg-4">
+                            <div class="staff-card">
+                                <div class="staff-info">
+                                    <div class="staff-name">Pronoy Saha</div>
+                                    <div class="staff-designation">Field Organizer</div>
+                                </div>
+                                <div class="staff-photo-wrap">
+                                    <img src="CS-7.jpeg" alt="Pronoy Saha">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                        <hr class="section-divider">
+
+                        <!-- Organizational Standards & Procedures -->
+                        <section id="org-standards" class="section-anchor mb-5">
+                            <h5 class="about-section-heading">Organizational Standards & Procedures</h5>
+                            <p class="about-body-text mt-3 mb-4">
+                                ARCO has established a formal oversight mechanism, supported by approved policies and manuals, to govern and manage the organization and its development programs. These frameworks provide clearly defined internal procedures and mechanisms for addressing legal affairs.
+                            </p>
+                            <ul class="policy-list">
+                                <li>Human Resource Policy</li>
+                                <li>Financial Policy</li>
+                                <li>Micro Credit Policy</li>
+                                <li>Gender Policy</li>
+                                <li>Child Protection Policy</li>
+                                <li>Policy on Sexual Abuse and Gender Violence of ARCO</li>
+                                <li>Fraud Policy</li>
+                                <li>Purchase and Sales Principles</li>
+                                <li>Principles of Sustainable Asset Management</li>
+                                <li>Savings and Credit Policies</li>
+                            </ul>
+                        </section>
+
+                    </div>
+                    <!-- End Main content -->
+
                 </div>
             </div>
         </div>
-        <!-- About End -->   
+        <!-- Leadership Section End -->
 
-        
         <!-- JavaScript Libraries -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -360,10 +664,31 @@
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="lib/lightbox/js/lightbox.min.js"></script>
-        
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+
+        <!-- Sidebar active link on scroll -->
+        <script>
+            const sections = ['general-committee','executive-committee','organogram','human-resources','core-staff','org-standards'];
+            const sidebarLinks = document.querySelectorAll('.sidebar-nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el && window.scrollY >= el.offsetTop - 120) {
+                        current = id;
+                    }
+                });
+                sidebarLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === '#' + current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        </script>
 
     </body>
 

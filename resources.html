@@ -1,125 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <title>ARCO-Mission & Vision</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+<head>
+    <meta charset="utf-8">
+    <title>ARCO-Resources</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700&family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        <!-- Libraries Stylesheet -->
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+    <style>
+        /* ── Anchor offset for fixed navbar ── */
+        .section-anchor {
+            scroll-margin-top: 90px;
+        }
 
-    <body>
+        /* ── Sidebar ── */
+        .about-sidebar {
+            position: sticky;
+            top: 100px;
+            background: #870607;
+            border-radius: 16px;
+            padding: 12px 10px;
+            box-shadow: 0 8px 32px rgba(135, 6, 7, 0.18);
+        }
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" role="status"></div>
+        .about-sidebar .sidebar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 8px 14px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 8px;
+        }
+
+        .sidebar-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            color: rgba(255, 255, 255, 0.82);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, padding-left 0.2s;
+            margin-bottom: 2px;
+        }
+
+        .sidebar-nav-link i {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .sidebar-nav-link:hover,
+        .sidebar-nav-link.active {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+            padding-left: 22px;
+            text-decoration: none;
+        }
+
+        .sidebar-nav-link.active {
+            background: rgba(255, 255, 255, 0.25);
+            font-weight: 700;
+        }
+
+        /* ── Section headings ── */
+        .about-section-heading {
+            font-family: 'Playfair Display', serif;
+            color: #870607;
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #870607;
+            display: inline-block;
+        }
+
+        .about-body-text {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.9;
+            color: #333;
+        }
+
+        /* ── Lists ── */
+        .custom-list {
+            font-family: 'Lato', sans-serif;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .custom-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 0;
+            border-bottom: 1px solid #f5e5e5;
+        }
+
+        .custom-list li::before {
+            content: "\f058";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #870607;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        /* ── Section divider ── */
+        .section-divider {
+            border: none;
+            border-top: 1px solid #f0d8d8;
+            margin: 40px 0;
+        }
+
+        /* ── Mobile dropdown ── */
+        .dropdown-quicknav { display: none; }
+        @media (max-width: 991px) {
+            .about-sidebar { display: none; }
+            .dropdown-quicknav { display: block; margin-bottom: 32px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+
+    <div class="container-fluid fixed-top px-0">
+        <nav class="navbar navbar-light bg-light navbar-expand-xl">
+            <a href="index.html" class="navbar-brand ms-3">
+                <h1 class="text-primary display-5"><img src="Picture1.jpeg"></h1>
+            </a>
+            <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-primary"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="leadership.html" class="nav-item nav-link">Leadership & Governance</a>
+                    <a href="programs.html" class="nav-item nav-link">Programs & Projects</a>
+                    <a href="resources.html" class="nav-item nav-link active">Resources</a>
+                    <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">Resources</h3>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active text-white">Resources</li>
+            </ol>
         </div>
-        <!-- Spinner End -->
+    </div>
 
-
-         <!-- Navbar start -->
-        <div class="container-fluid fixed-top px-0">
-                <nav class="navbar navbar-light bg-light navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand ms-3">
-                        <h1 class="text-primary display-5"><img src="Picture1.jpeg"></h1>
-                    </a>
-                    <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
-                        <div class="navbar-nav ms-auto">
-                           <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About Us</a>
-                            <a href="leadership.html" class="nav-item nav-link">Leadership & Governance</a>
-                            <a href="programs.html" class="nav-item nav-link">Programs & Projects</a>
-                            <a href="resources.html" class="nav-item nav-link">Resources</a>
-                            <a href="gallery.html" class="nav-item nav-link">Gallery</a>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        </div>
+    <div class="container-fluid about py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                    <div class="about-sidebar">
+                        <div class="sidebar-title">On This Page</div>
+                        <a href="#income-sources" class="sidebar-nav-link active">
+                            <i class="fas fa-hand-holding-usd"></i> Income Sources
+                        </a>
+                        <a href="#networking" class="sidebar-nav-link">
+                            <i class="fas fa-network-wired"></i> Membership & Networking
+                        </a>
                     </div>
-                </nav>
-            </div>
-        </div>
-        <!-- Navbar End -->
+                </div>
 
-        <!-- Header Start -->
-        <div class="container-fluid bg-breadcrumb">
-            <div class="container text-center py-5" style="max-width: 900px;">
-                <h3 class="text-white display-3 mb-4">Resources</h1>
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active text-white">Resources</li>
-                </ol>    
-            </div>
-        </div>
-        <!-- Header End -->
+                <div class="col-xl-9 col-lg-9 col-12">
+                    <div class="dropdown-quicknav">
+                        <select onchange="document.getElementById(this.value).scrollIntoView({behavior:'smooth', block:'start'})">
+                            <option value="" disabled selected>— Jump to section —</option>
+                            <option value="income-sources">Income Sources</option>
+                            <option value="networking">Membership & Networking</option>
+                        </select>
+                    </div>
 
-        <!-- About Start -->
-        <div class="container-fluid about  py-5">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-xl-7">
-                        <h5 style="color: #870607;">Income sources of the organization:</h5>
-                        <p class="fs-5 mb-4">ARCO creates funds for its development work from:</p>
-                        <ul>
+                    <section id="income-sources" class="section-anchor mb-5">
+                        <h5 class="about-section-heading">Income sources of the organization</h5>
+                        <p class="about-body-text mt-3">ARCO creates funds for its development work from:</p>
+                        <ul class="custom-list mt-3">
                             <li>Donor</li>
                             <li>Government: Bangladesh Bank</li>
                             <li>Own: Micro-credit</li>
                             <li>Like minded NGOs</li>
                             <li>Contribution of members</li>
                         </ul>
-                        <h5 style="color: #870607;">Membership and networking:</h5>
-                        <p class="fs-5 mb-4">ARCO has been member of the following bodies:</p>
-                        <ul>
+                    </section>
+
+                    <hr class="section-divider">
+
+                    <section id="networking" class="section-anchor mb-5">
+                        <h5 class="about-section-heading">Membership and networking</h5>
+                        <p class="about-body-text mt-3">ARCO has been member of the following bodies:</p>
+                        <ul class="custom-list mt-3">
                             <li>Credit and Development Forum (CDF)</li>
                             <li>The Network of Non-mainstreamed Marginalized Communities-NNMC Foundation</li>
                             <li>Federation of NGOs in Bangladesh (FNB)</li>
                             <li>Action Against Trafficking and Sexual Exploitation of Children (ATSEC-Bangladesh)</li>
                         </ul>
-                    </div>
+                    </section>
                 </div>
             </div>
         </div>
-        <!-- About End -->
+    </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 
-           
+    <script>
+        const sections = ['income-sources', 'networking'];
+        const sidebarLinks = document.querySelectorAll('.sidebar-nav-link');
 
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
-        
-
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
-
-    </body>
-
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && window.scrollY >= el.offsetTop - 120) {
+                    current = id;
+                }
+            });
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
 </html>

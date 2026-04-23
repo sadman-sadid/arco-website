@@ -11,7 +11,7 @@
         <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700&family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
 
         <!-- Icon Font Stylesheet -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
@@ -21,145 +21,288 @@
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
         <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
-
         <!-- Customized Bootstrap Stylesheet -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
+
+        <style>
+
+            /* ═══════════════════════════════
+               GALLERY SECTION
+            ═══════════════════════════════ */
+            .gallery-section {
+                padding: 64px 0 80px;
+                background: #fafafa;
+            }
+
+            /* Section heading — same style as about/leadership */
+            .gallery-heading-wrap {
+                text-align: center;
+                margin-bottom: 48px;
+            }
+
+            .gallery-heading {
+                font-family: 'Playfair Display', serif;
+                color: #870607;
+                font-size: 1.9rem;
+                font-weight: 800;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+                display: inline-block;
+                position: relative;
+            }
+
+            .gallery-heading::after {
+                content: '';
+                display: block;
+                width: 60px;
+                height: 3px;
+                background: #870607;
+                border-radius: 2px;
+                margin: 14px auto 0;
+            }
+
+            .gallery-subtext {
+                font-family: 'Lato', sans-serif;
+                font-size: 1rem;
+                color: #777;
+                margin-top: 18px;
+                letter-spacing: 0.3px;
+            }
+
+            /* ── Grid ── */
+            .gallery-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 16px;
+                padding: 0 16px;
+            }
+
+            @media (max-width: 1100px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
+            @media (max-width: 720px)  { .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+            @media (max-width: 440px)  { .gallery-grid { grid-template-columns: 1fr; } }
+
+            /* ── Gallery card ── */
+            .gallery-card {
+                position: relative;
+                overflow: hidden;
+                border-radius: 12px;
+                box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+                background: #eee;
+                aspect-ratio: 1 / 1;
+                cursor: pointer;
+            }
+
+            .gallery-card img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                display: block;
+                transition: transform 0.42s ease;
+            }
+
+            /* Hover overlay */
+            .gallery-card::after {
+                content: '\f00e';
+                font-family: "Font Awesome 5 Free";
+                font-weight: 900;
+                font-size: 1.6rem;
+                color: #fff;
+                position: absolute;
+                inset: 0;
+                background: rgba(135, 6, 7, 0.55);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                border-radius: 12px;
+            }
+
+            .gallery-card:hover img {
+                transform: scale(1.08);
+            }
+
+            .gallery-card:hover::after {
+                opacity: 1;
+            }
+
+            /* Red top border accent on hover */
+            .gallery-card::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0;
+                height: 3px;
+                background: #870607;
+                z-index: 2;
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform 0.3s ease;
+            }
+
+            .gallery-card:hover::before {
+                transform: scaleX(1);
+            }
+
+            /* ── Image counter badge ── */
+            .gallery-count-badge {
+                display: inline-flex;
+                align-items: center;
+                gap: 7px;
+                background: #870607;
+                color: #fff;
+                font-family: 'Lato', sans-serif;
+                font-size: 0.85rem;
+                font-weight: 700;
+                padding: 6px 16px;
+                border-radius: 20px;
+                margin-bottom: 32px;
+                letter-spacing: 0.5px;
+            }
+
+        </style>
     </head>
 
     <body>
 
         <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
+        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-grow text-primary" role="status"></div>
         </div>
         <!-- Spinner End -->
 
-
-         <!-- Navbar start -->
+        <!-- Navbar Start -->
         <div class="container-fluid fixed-top px-0">
-                <nav class="navbar navbar-light bg-light navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand ms-3">
-                        <h1 class="text-primary display-5"><img src="Picture1.jpeg"></h1>
-                    </a>
-                    <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
-                        <div class="navbar-nav ms-auto">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About Us</a>
-                            <a href="leadership.html" class="nav-item nav-link">Leadership & Governance</a>
-                            <a href="programs.html" class="nav-item nav-link">Programs & Projects</a>
-                            <a href="resources.html" class="nav-item nav-link">Resources</a>
-                            <a href="gallery.html" class="nav-item nav-link">Gallery</a>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        </div>
+            <nav class="navbar navbar-light bg-light navbar-expand-xl">
+                <a href="index.html" class="navbar-brand ms-3">
+                    <h1 class="text-primary display-5"><img src="Picture1.jpeg"></h1>
+                </a>
+                <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars text-primary"></span>
+                </button>
+                <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="about.html" class="nav-item nav-link">About Us</a>
+                        <a href="leadership.html" class="nav-item nav-link">Leadership & Governance</a>
+                        <a href="programs.html" class="nav-item nav-link">Programs & Projects</a>
+                        <a href="resources.html" class="nav-item nav-link">Resources</a>
+                        <a href="gallery.html" class="nav-item nav-link active">Gallery</a>
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-                </nav>
-            </div>
+                </div>
+            </nav>
         </div>
         <!-- Navbar End -->
 
         <!-- Header Start -->
         <div class="container-fluid bg-breadcrumb">
             <div class="container text-center py-5" style="max-width: 900px;">
-                <h3 class="text-white display-3 mb-4">Gallery</h1>
+                <h3 class="text-white display-3 mb-4">Gallery</h3>
                 <ol class="breadcrumb justify-content-center mb-0">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
                     <li class="breadcrumb-item active text-white">Gallery</li>
-                </ol>    
+                </ol>
             </div>
         </div>
         <!-- Header End -->
 
-<div class="gallery">
-    <div class="gallery-item">
-        <img src="gallery1.png" alt="Description">
-    </div>
-     <div class="gallery-item">
-        <img src="gallery2.png" alt="Description">
-    </div>
-     <div class="gallery-item">
-        <img src="gallery3.png" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery4.png" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery5.png" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery6.png" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery7.png" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery8.png" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery9.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery10.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery11.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery12.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery13.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery14.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery15.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery16.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery17.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery18.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery19.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery20.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery21.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery22.jpeg" alt="Description">
-    </div>
-    <div class="gallery-item">
-        <img src="gallery23.jpeg" alt="Description">
-    </div>
-</div>
+        <!-- Gallery Section Start -->
+        <div class="gallery-section">
+            <div class="container-fluid">
 
-<style>
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-    }
-    .gallery-item img {
-        width: 250px;
-        height: 250px;
-    }
-</style>
+                <!-- Heading -->
+                <div class="gallery-heading-wrap">
+                    <h2 class="gallery-heading">Our Photo Gallery</h2>
+                    <p class="gallery-subtext">A glimpse into ARCO's work, communities, and impact across Bangladesh.</p>
+                    <div class="gallery-count-badge">
+                        <i class="fas fa-images"></i> 23 Photos
+                    </div>
+                </div>
 
-        
+                <!-- Grid -->
+                <div class="gallery-grid">
+
+                    <a href="gallery1.png" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery1.png" alt="Gallery Image 1">
+                    </a>
+                    <a href="gallery2.png" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery2.png" alt="Gallery Image 2">
+                    </a>
+                    <a href="gallery3.png" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery3.png" alt="Gallery Image 3">
+                    </a>
+                    <a href="gallery4.png" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery4.png" alt="Gallery Image 4">
+                    </a>
+                    <a href="gallery5.png" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery5.png" alt="Gallery Image 5">
+                    </a>
+                    <a href="gallery6.png" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery6.png" alt="Gallery Image 6">
+                    </a>
+                    <a href="gallery7.png" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery7.png" alt="Gallery Image 7">
+                    </a>
+                    <a href="gallery8.png" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery8.png" alt="Gallery Image 8">
+                    </a>
+                    <a href="gallery9.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery9.jpeg" alt="Gallery Image 9">
+                    </a>
+                    <a href="gallery10.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery10.jpeg" alt="Gallery Image 10">
+                    </a>
+                    <a href="gallery11.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery11.jpeg" alt="Gallery Image 11">
+                    </a>
+                    <a href="gallery12.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery12.jpeg" alt="Gallery Image 12">
+                    </a>
+                    <a href="gallery13.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery13.jpeg" alt="Gallery Image 13">
+                    </a>
+                    <a href="gallery14.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery14.jpeg" alt="Gallery Image 14">
+                    </a>
+                    <a href="gallery15.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery15.jpeg" alt="Gallery Image 15">
+                    </a>
+                    <a href="gallery16.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery16.jpeg" alt="Gallery Image 16">
+                    </a>
+                    <a href="gallery17.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery17.jpeg" alt="Gallery Image 17">
+                    </a>
+                    <a href="gallery18.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery18.jpeg" alt="Gallery Image 18">
+                    </a>
+                    <a href="gallery19.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery19.jpeg" alt="Gallery Image 19">
+                    </a>
+                    <a href="gallery20.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery20.jpeg" alt="Gallery Image 20">
+                    </a>
+                    <a href="gallery21.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery21.jpeg" alt="Gallery Image 21">
+                    </a>
+                    <a href="gallery22.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery22.jpeg" alt="Gallery Image 22">
+                    </a>
+                    <a href="gallery23.jpeg" data-lightbox="arco-gallery" data-title="ARCO Field Work" class="gallery-card">
+                        <img src="gallery23.jpeg" alt="Gallery Image 23">
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <!-- Gallery Section End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-primary btn-primary-outline-0 btn-md-square back-to-top"><i class="fa fa-arrow-up"></i></a>
+
         <!-- JavaScript Libraries -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -168,7 +311,6 @@
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="lib/lightbox/js/lightbox.min.js"></script>
-        
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>

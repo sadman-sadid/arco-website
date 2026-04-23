@@ -1,252 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="utf-8">
-        <title>ARCO-Programs & Projects</title>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+<head>
+    <meta charset="utf-8">
+    <title>ARCO-Programs & Projects</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lato:wght@300;400;700&family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
 
-        <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
-        <!-- Libraries Stylesheet -->
-        <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-        <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
-        <!-- Customized Bootstrap Stylesheet -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
 
-        <!-- Template Stylesheet -->
-        <link href="css/style.css" rel="stylesheet">
-    </head>
+    <style>
+        /* ── Anchor offset for fixed navbar ── */
+        .section-anchor {
+            scroll-margin-top: 90px;
+        }
 
-    <body>
+        /* ── Sidebar ── */
+        .about-sidebar {
+            position: sticky;
+            top: 100px;
+            background: #870607;
+            border-radius: 16px;
+            padding: 12px 10px;
+            box-shadow: 0 8px 32px rgba(135, 6, 7, 0.18);
+        }
 
-        <!-- Spinner Start -->
-        <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-            <div class="spinner-grow text-primary" role="status"></div>
+        .about-sidebar .sidebar-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 8px 14px 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            margin-bottom: 8px;
+        }
+
+        .sidebar-nav-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 16px;
+            color: rgba(255, 255, 255, 0.82);
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 400;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, padding-left 0.2s;
+            margin-bottom: 2px;
+        }
+
+        .sidebar-nav-link i {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .sidebar-nav-link:hover,
+        .sidebar-nav-link.active {
+            background: rgba(255, 255, 255, 0.18);
+            color: #fff;
+            padding-left: 22px;
+            text-decoration: none;
+        }
+
+        .sidebar-nav-link.active {
+            background: rgba(255, 255, 255, 0.25);
+            font-weight: 700;
+        }
+
+        /* ── Section headings ── */
+        .about-section-heading {
+            font-family: 'Playfair Display', serif;
+            color: #870607;
+            font-size: 1.55rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #870607;
+            display: inline-block;
+        }
+
+        .about-body-text {
+            font-family: 'Lato', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 400;
+            line-height: 1.9;
+            color: #333;
+        }
+
+        /* ── Modern Table Styles ── */
+        .reg-table {
+            border-collapse: collapse;
+            width: 100%;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.95rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(135, 6, 7, 0.08);
+        }
+
+        .reg-table thead th {
+            background: #870607;
+            color: #fff;
+            padding: 12px 16px;
+            text-align: center;
+            border: none;
+            font-weight: 700;
+        }
+
+        .reg-table tbody td {
+            padding: 11px 16px;
+            border-bottom: 1px solid #f0d8d8;
+            text-align: center;
+            vertical-align: middle;
+            color: #333;
+        }
+
+        .reg-table tbody td:nth-child(2) { text-align: left; }
+        .reg-table tbody tr:hover td { background: #fff5f5; }
+
+        /* ── Lists ── */
+        .custom-list {
+            font-family: 'Lato', sans-serif;
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .custom-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 6px 0;
+            border-bottom: 1px solid #f5e5e5;
+        }
+
+        .custom-list li::before {
+            content: "\f058";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: #870607;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .theory-wrap {
+            background: #fdf5f5;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #f0d8d8;
+        }
+
+        .theory-wrap img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        /* ── Mobile dropdown ── */
+        .dropdown-quicknav { display: none; }
+        @media (max-width: 991px) {
+            .about-sidebar { display: none; }
+            .dropdown-quicknav { display: block; margin-bottom: 32px; }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-grow text-primary" role="status"></div>
+    </div>
+
+    <div class="container-fluid fixed-top px-0">
+        <nav class="navbar navbar-light bg-light navbar-expand-xl">
+            <a href="index.html" class="navbar-brand ms-3">
+                <h1 class="text-primary display-5"><img src="Picture1.jpeg"></h1>
+            </a>
+            <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars text-primary"></span>
+            </button>
+            <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
+                <div class="navbar-nav ms-auto">
+                    <a href="index.html" class="nav-item nav-link">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About Us</a>
+                    <a href="leadership.html" class="nav-item nav-link">Leadership & Governance</a>
+                    <a href="programs.html" class="nav-item nav-link active">Programs & Projects</a>
+                    <a href="resources.html" class="nav-item nav-link">Resources</a>
+                    <a href="gallery.html" class="nav-item nav-link">Gallery</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid bg-breadcrumb">
+        <div class="container text-center py-5" style="max-width: 900px;">
+            <h3 class="text-white display-3 mb-4">Programs & Projects</h3>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active text-white">Programs & Projects</li>
+            </ol>
         </div>
-        <!-- Spinner End -->
+    </div>
 
-
-        <!-- Navbar start -->
-        <div class="container-fluid fixed-top px-0">
-                <nav class="navbar navbar-light bg-light navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand ms-3">
-                        <h1 class="text-primary display-5"><img src="Picture1.jpeg"></h1>
-                    </a>
-                    <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
-                        <div class="navbar-nav ms-auto">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="about.html" class="nav-item nav-link">About Us</a>
-                            <a href="leadership.html" class="nav-item nav-link">Leadership & Governance</a>
-                            <a href="programs.html" class="nav-item nav-link">Programs & Projects</a>
-                            <a href="resources.html" class="nav-item nav-link">Resources</a>
-                            <a href="gallery.html" class="nav-item nav-link">Gallery</a>
-                            <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        </div>
+    <div class="container-fluid about py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-xl-3 col-lg-3 d-none d-lg-block">
+                    <div class="about-sidebar">
+                        <div class="sidebar-title">On This Page</div>
+                        <a href="#program-approach" class="sidebar-nav-link active">
+                            <i class="fas fa-handshake"></i> Program Approach
+                        </a>
+                        <a href="#intervention-areas" class="sidebar-nav-link">
+                            <i class="fas fa-map-marker-alt"></i> Intervention Areas
+                        </a>
+                        <a href="#implemented-projects" class="sidebar-nav-link">
+                            <i class="fas fa-tasks"></i> Implemented Projects
+                        </a>
+                        <a href="#theory-of-change" class="sidebar-nav-link">
+                            <i class="fas fa-project-diagram"></i> Theory of Change
+                        </a>
                     </div>
-                </nav>
-            </div>
-        </div>
-        <!-- Navbar End -->
+                </div>
 
-        <!-- Header Start -->
-        <div class="container-fluid bg-breadcrumb">
-            <div class="container text-center py-5" style="max-width: 900px;">
-                <h3 class="text-white display-3 mb-4">Programs & Projects</h1>
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active text-white">Programs & Projects</li>
-                </ol>    
-            </div>
-        </div>
-        <!-- Header End -->
+                <div class="col-xl-9 col-lg-9 col-12">
+                    <div class="dropdown-quicknav">
+                        <select onchange="document.getElementById(this.value).scrollIntoView({behavior:'smooth', block:'start'})">
+                            <option value="" disabled selected>— Jump to section —</option>
+                            <option value="program-approach">Program Approach</option>
+                            <option value="intervention-areas">Intervention Areas</option>
+                            <option value="implemented-projects">Implemented Projects</option>
+                            <option value="theory-of-change">Theory of Change</option>
+                        </select>
+                    </div>
 
-        <!-- Programs Start -->
-        <div class="container-fluid about  py-5">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-xl-7">
-                        <h5 style="color: #870607;">Program Approach:</h5>
-                        <ul>
-                             <li>Democratic.</li>
-                             <li>Human Rights Based.</li>
-                             <li>Partnership and Networking.</li>
-                             <li>Systemic Change.</li>
-                             <li>Inclusive Market Development.</li>
-                             <li>Diapraxis.</li>
+                    <section id="program-approach" class="section-anchor mb-5">
+                        <h5 class="about-section-heading">Program Approach</h5>
+                        <ul class="custom-list mt-3">
+                            <li>Democratic.</li>
+                            <li>Human Rights Based.</li>
+                            <li>Partnership and Networking.</li>
+                            <li>Systemic Change.</li>
+                            <li>Inclusive Market Development.</li>
+                            <li>Diapraxis.</li>
                         </ul>
-                        <h5 style="color: #870607;">Implemented Projects:</h5>
-                        <!DOCTYPE html>
-                            <html>
-                            <head>
-                            <style>
-                            table {
-                                border-collapse: collapse;
-                                width: 100%;
-                                font-family: Arial, sans-serif;
-                            }
+                    </section>
 
-                            thead th {
-                                background: #870607;
-                                color: #fff;
-                                padding: 10px 16px;
-                                text-align: center;
-                                border: 1px solid #999;
-                                font-weight: bold;
-                            }
+                    <hr class="section-divider">
 
-                            tbody td {
-                                padding: 10px 16px;
-                                border: 1px solid #999;
-                                text-align: center;
-                                vertical-align: middle;
-                            }
+                    <section id="intervention-areas" class="section-anchor mb-5">
+                        <h5 class="about-section-heading">Intervention Areas</h5>
+                        <ul class="custom-list mt-3">
+                            <li>Develop community-based organization and leadership of Adibashi and Dalits people through democratic practices, values and development framework initiatives.</li>
+                            <li>Mobilize the community for the protection of women and children.</li>
+                            <li>Conduct advocacy, mass awareness and campaign for security, protection and fulfillment of the rights of Adibashi, Dalits, women and children.</li>
+                            <li>Develop the life skills of Adolescent and youths.</li>
+                            <li>Promote health and sanitation conditions of Adibashi and Dalits communities.</li>
+                            <li>Promote demand-oriented livelihoods for the deprived and most disadvantaged poor communities, especially Adibashi and Dalits.</li>
+                            <li>Create opportunities for education, technical and vocational training with job placement.</li>
+                            <li>Coordinate the market development activities of small farmers.</li>
+                            <li>Engage private and public sectors for inclusive market development.</li>
+                            <li>Improve, transfer, and integrate advance agro-technology and climate change adaptation (CCA) strategies.</li>
+                            <li>Food security and agriculture assistance to small holder farmers.</li>
+                            <li>Build the capacity of farmers to mitigate upcoming challenges of climate change on livelihoods and environment.</li>
+                            <li>Capacitate the community, local government & staff on anticipation of climate change impact, humanitarian aid management and disaster risks reductions (DRR).</li>
+                        </ul>
+                    </section>
 
-                            tbody td:nth-child(2) {
-                                text-align: left;
-                            }
-                            </style>
-                            </head>
-                            <body>
-                            <table>
+                    <hr class="section-divider">
+
+                    <section id="implemented-projects" class="section-anchor mb-5">
+                        <h5 class="about-section-heading">Implemented Projects</h5>
+                        <div style="overflow-x:auto; border-radius:10px; margin-top: 20px;">
+                            <table class="reg-table">
                                 <thead>
-                                <tr>
-                                    <th>Sl. No</th>
-                                    <th>Project/Program's name</th>
-                                    <th>Donor</th>
-                                    <th>Year</th>
-                                    <th>Total Budget</th>
-                                </tr>
+                                    <tr>
+                                        <th>Sl. No</th>
+                                        <th>Project/Program's name</th>
+                                        <th>Donor</th>
+                                        <th>Year</th>
+                                        <th>Total Budget</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Rural Livelihood and food security  (RLFS) project</td>
-                                    <td>Mennonite Central Committee (MCC) Bangladesh</td>
-                                    <td>April 2021-31 March 2025</td>
-                                    <td>BDT 1,07,66,098</td>  
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Dalit/Adibashi Rights, Empowerment and Access towards Mainstreaming (DREAM)</td>
-                                    <td>HEKS/EPER, Switzerland</td>
-                                    <td>January 2009- December 2024</td>
-                                    <td>BDT 7,91,62,802/td>  
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Hygenic Sanitation and Water Supply Project (HYSAWA) </td>
-                                    <td>GOB & DANIDA</td>
-                                    <td>01 July 2008 to 30 June 2010.</td>
-                                    <td>BDT 19,715,750</td>  
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Hygenic Sanitation and Water Supply Project (HYSAWA)</td>
-                                    <td>GOB & DANIDA</td>
-                                    <td>01 July 2013 to 30 June 2016.</td>
-                                    <td>BDT 6,045,015</td>  
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Housing Project</td>
-                                    <td>Bangladesh Bank</td>
-                                    <td>2008 - Continue</td>
-                                    <td>BDT 85,30,000</td>  
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Emergency response on COVID -19</td>
-                                    <td>Start Fund Bangladesh</td>
-                                    <td>April – May  2000</td>
-                                    <td>BDT 8,70,976</td>  
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>Rapid Response for Flood Affected People of Naogaon</td>
-                                    <td>Start Fund Bangladesh</td>
-                                    <td>9 August 20 -23 September 20</td>
-                                    <td>BDT 9,446,040</td>  
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>“COVID-19 Response and Rehabilitation Initiative (C2RI) for the Most Vulnerable Groups in Bangladesh”</td>
-                                    <td>Swiss Agency for development and Cooperation (SDC)</td>
-                                    <td>01 July 20-  31 December 2021</td>
-                                    <td>BDT 50,40,500</td>  
-                                </tr>
+                                    <tr><td>1</td><td>Rural Livelihood and food security (RLFS) project</td><td>MCC Bangladesh</td><td>April 2021-31 March 2025</td><td>BDT 1,07,66,098</td></tr>
+                                    <tr><td>2</td><td>Dalit/Adibashi Rights, Empowerment and Access towards Mainstreaming (DREAM)</td><td>HEKS/EPER, Switzerland</td><td>Jan 2009- Dec 2024</td><td>BDT 7,91,62,802</td></tr>
+                                    <tr><td>3</td><td>Hygenic Sanitation and Water Supply Project (HYSAWA)</td><td>GOB & DANIDA</td><td>01 July 2008 to 30 June 2010</td><td>BDT 19,715,750</td></tr>
+                                    <tr><td>4</td><td>Hygenic Sanitation and Water Supply Project (HYSAWA)</td><td>GOB & DANIDA</td><td>01 July 2013 to 30 June 2016</td><td>BDT 6,045,015</td></tr>
+                                    <tr><td>5</td><td>Housing Project</td><td>Bangladesh Bank</td><td>2008 - Continue</td><td>BDT 85,30,000</td></tr>
+                                    <tr><td>6</td><td>Emergency response on COVID-19</td><td>Start Fund Bangladesh</td><td>April – May 2000</td><td>BDT 8,70,976</td></tr>
+                                    <tr><td>7</td><td>Rapid Response for Flood Affected People of Naogaon</td><td>Start Fund Bangladesh</td><td>9 Aug 20 - 23 Sep 20</td><td>BDT 9,446,040</td></tr>
+                                    <tr><td>8</td><td>COVID-19 Response and Rehabilitation Initiative (C2RI)</td><td>SDC</td><td>01 July 20- 31 Dec 2021</td><td>BDT 50,40,500</td></tr>
                                 </tbody>
                             </table>
-                            </body>
-                            </html>
-                            <br>
-                            <h5 style="color: #870607;">Development Theory of Change:</h5>
-                            <img src="Theory.png" width="500"height="300">
-                            <br>
-                            <h5 style="color: #870607;">Organizational standards and procedures:</h5>
-                            <p class="fs-5 mb-4">ARCO has established a formal oversight mechanism, supported by approved policies and manuals, to govern and manage the organization and its development programs. These frameworks provide clearly defined internal procedures and mechanisms for addressing legal affairs.</p>
-                            <ul>
-                                <li>Human Resource Policy.</li>
-                                <li>Financial Policy.</li>
-                                <li>Micro credit policy.</li>
-                                <li>Gender policy.</li>
-                                <li>Child Protection policy.</li>
-                                <li>Policy on sexual abuse and gender violence of ARCO.</li>
-                                <li>Fraud policy</li>
-                                <li>Purchase and Sales Principles.</li>
-                                <li>Principles of Sustainable Asset Management.</li>
-                                <li>Savings and Credit policies.</li>
-                            </ul>
-                            <h5 style="color: #870607;">Intervention Areas:</h5>
-                        <ul>
-                             <li>Develop community-based organization and leadership of Adibashi and Dalits people through democratic practices, values and development framework initiatives.</li>
-                             <li>Mobilize the community for the protection of women and children</li>
-                             <li>Conduct advocacy, mass awareness and campaign for security, protection and fulfillment of the rights of Adibashi, Dalits, women and children, </li>
-                             <li>Develop the life skills of Adolescent and youths </li>
-                             <li>Promote health and sanitation conditions of Adibashi and Dalits communities</li>
-                             <li>Promote demand-oriented livelihoods for the deprived and most disadvantaged poor communities, especially Adibashi and Dalits</li>
-                             <li>Create opportunities for education, technical and vocational training with job placement.</li>
-                             <li>Coordinate the market development activities of small farmers.</li>
-                             <li>Engage private and public sectors for inclusive market development.</li>
-                             <li>Improve, transfer, and integrate advance agro-technology and climate change adaptation (CCA) strategies.</li>
-                             <li>Food security and agriculture assistance to small holder farmers.</li>
-                             <li>Build the capacity of farmers to mitigate upcoming challenges of climate change on livelihoods and environment   .</li>
-                             <li>Capacitate the community, local government & staff on anticipation of climate change impact, humanitarian aid management and disaster risks reductions (DRR)</li>
-                        </ul>
                         </div>
+                    </section>
+
+                    <hr class="section-divider">
+
+                    <section id="theory-of-change" class="section-anchor mb-5">
+                        <h5 class="about-section-heading">Development Theory of Change</h5>
+                        <div class="theory-wrap mt-3">
+                            <img src="Theory.png" alt="Theory of Change">
+                        </div>
+                    </section>
                 </div>
             </div>
         </div>
-        <!-- Programs End-->
+    </div>
 
-        
-        <!-- JavaScript Libraries -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/lightbox/js/lightbox.min.js"></script>
-        
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
 
-        <!-- Template Javascript -->
-        <script src="js/main.js"></script>
+    <script>
+        const sections = ['program-approach', 'intervention-areas', 'implemented-projects', 'theory-of-change'];
+        const sidebarLinks = document.querySelectorAll('.sidebar-nav-link');
 
-    </body>
-
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(id => {
+                const el = document.getElementById(id);
+                if (el && window.scrollY >= el.offsetTop - 120) {
+                    current = id;
+                }
+            });
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
 </html>
